@@ -3,15 +3,19 @@
 <dom-module id="horizontal-layout">
   <template>
   <style>
+      :host {
+        display: block;
+      }
+
       :host .horizontal-layout {
         display: flex;
         flex-direction: row;
       }
-      
+
       :host ::slotted([expanded]) {
         flex: 1 1 auto;
       }
-      
+
       :host ::slotted(:not([expanded])) {
         flex: 0 0 auto;
       }
@@ -22,12 +26,12 @@
   </template>
   <script>
     class HorizontalLayout extends VaadinLayout {
-      
+
         static get is() {
             return 'horizontal-layout'
         }
     }
-    
+
     customElements.define(HorizontalLayout.is, HorizontalLayout);
   </script>
 </dom-module>

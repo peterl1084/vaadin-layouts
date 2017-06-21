@@ -3,32 +3,36 @@
 <dom-module id="vertical-layout">
   <template>
     <style>
+      :host {
+        display: block;
+      }
+      
       :host .vertical-layout {
         display: flex;
         flex-direction: column;
       }
-      
+
       :host ::slotted([expanded]) {
         flex: 1 1 auto;
       }
-      
+
       :host ::slotted(:not([expanded])) {
         flex: 0 0 auto;
       }
     </style>
-    
+
     <div class="vertical-layout">
       <slot id="root"></slot>
     </div>
   </template>
   <script>
     class VerticalLayout extends VaadinLayout {
-      
+
         static get is() {
             return 'vertical-layout'
         }
     }
-    
+
     customElements.define(VerticalLayout.is, VerticalLayout);
   </script>
 </dom-module>
