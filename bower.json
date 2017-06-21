@@ -1,0 +1,19 @@
+{
+  "name": "vaadin-layouts",
+  "homepage": "https://github.com/peterl1084/vaadin-layouts",
+  "authors": ["Peter Lehto"],
+  "description": "",
+  "main": "index.html",
+  "license": "Apache2",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  	"polymer": "^2.0.0"
+  }
+}

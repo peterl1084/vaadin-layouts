@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/lib/utils/flattened-nodes-observer.html">
+<link rel="import" href="vaadin-layout-slot.html">
+
+	<script>
+		class VaadinLayout extends Polymer.Element {
+			
+		    static get properties() {
+		    		return {
+		    			margin: {
+		    				type: Boolean
+		    			},
+		    			spacing: {
+		    				type: Boolean
+		    			}
+		    		}
+		    }
+		    
+		    connectedCallback(e) {
+		    		super.connectedCallback()
+		    	 	
+		    		this._observer = new Polymer.FlattenedNodesObserver(this.$.root, info => {
+		    			this._addedNodes(info.addedNodes)
+		    			this._removeNodes(info.removedNodes)
+		    		});
+		    }
+		    
+		    disconnectedCallback(e) {
+		    		super.disconnectedCallback()
+		    		this._observer.disconnect()
+		    }
+		    
+		    wrapToSlotAndAppend(index, node) {
+		    		if(node.tagName && node.tagName.toLowerCase() === 'vaadin-layout-slot') {
+		    			return;
+		    		}
+		    		
+		    		var layoutSlot = document.createElement('vaadin-layout-slot');
+		    		layoutSlot.appendChild(node);
+		    		
+		    		this.appendChild(layoutSlot);
+		    }
+		    
+		    _addedNodes(nodes) {
+	    			var index = 0;
+      	    		nodes.filter(node => {
+      	    			if(node.nodeType == 3 && node.nodeValue.trim() == "") {
+      	    				return false;
+      	    			}
+      	    			return true;
+      	    		}).forEach(node => {
+      	    			index += 1;
+      				this.wrapToSlotAndAppend(index, node);
+      	    		});
+		    }
+		    
+		    _removeNodes(nodes) {
+		    		console.log(nodes)
+		    }
+		    
+		    expand(element) {
+		    		this._observer.flush();
+		    		var parent = element.parentElement;
+		    		parent.setAttribute("expanded", "");
+		    }
+		}
+	</script>
