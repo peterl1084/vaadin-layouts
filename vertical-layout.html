@@ -6,7 +6,7 @@
       :host {
         display: block;
       }
-      
+
       :host .vertical-layout {
         display: flex;
         flex-direction: column;
@@ -28,11 +28,11 @@
   <script>
     class VerticalLayout extends VaadinLayout {
 
-        static get is() {
-            return 'vertical-layout'
-        }
+      static get is() {
+        return 'vertical-layout'
+      }
     }
 
-    customElements.define(VerticalLayout.is, VerticalLayout);
+    customElements.define(VerticalLayout.is, VerticalLayout)
   </script>
 </dom-module>
