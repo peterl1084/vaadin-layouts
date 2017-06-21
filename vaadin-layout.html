@@ -36,8 +36,9 @@
       }
 
       var layoutSlot = document.createElement('vaadin-layout-slot')
+      
+      this.insertBefore(layoutSlot, node)
       layoutSlot.appendChild(node)
-      this.appendChild(layoutSlot)
     }
 
     _addedNodes(nodes) {
