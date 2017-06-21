@@ -1,11 +1,20 @@
 {
   "name": "vaadin-layouts",
   "homepage": "https://github.com/peterl1084/vaadin-layouts",
-  "authors": ["Peter Lehto"],
-  "description": "",
+  "authors": [
+    "Peter Lehto <peter@vaadin.com>"
+  ],
+  "description": "Vaadin Layouts WebComponent",
   "main": "index.html",
-  "license": "Apache2",
-  "private": false,
+  "keywords": [
+    "Vaadin",
+    "Flow",
+    "WebComponent",
+    "Vertical",
+    "Horizontal",
+    "Layout"
+  ],
+  "license": "Apache 2.0",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,6 +23,6 @@
     "tests"
   ],
   "dependencies": {
-  	"polymer": "^2.0.0"
+    "polymer": "^2.0.0"
   }
 }
